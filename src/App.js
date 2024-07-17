@@ -1,7 +1,5 @@
 import './App.css';
-import HomePage from './pages/HomePage';
-import AddNotes from './pages/AddNotes';
-import Notes from './pages/AddNotes'; 
+import {HomePage , AddNotes, Notes} from './pages/index';
 import {BrowserRouter, Routes, Route} from "react-router-dom";
 
 function App() {

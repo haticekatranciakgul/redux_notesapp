@@ -2,7 +2,8 @@ import React from 'react'
 
 const AddNotes = () => {
   return (
-    <div>AddNotes
+    <div>
+      <h1>AddNotes</h1>
       
     </div>
   )

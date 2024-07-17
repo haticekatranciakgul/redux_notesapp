@@ -17,7 +17,9 @@ import Link from '@mui/material/Link';
 import MenuIcon from '@mui/icons-material/Menu';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import NotificationsIcon from '@mui/icons-material/Notifications';
-import { mainListItems } from './listitems';
+import SideMenuList from './SideMenuList';
+import { Outlet } from 'react-router-dom';
+
 
 function Copyright(props) {
   return (
@@ -140,7 +142,7 @@ export default function Dashboard() {
           </Toolbar>
           <Divider />
           <List component="nav">
-            {mainListItems}
+            <SideMenuList></SideMenuList>
             <Divider sx={{ my: 1 }} />
            
           </List>
@@ -160,7 +162,7 @@ export default function Dashboard() {
           <Toolbar />
           <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
             <Grid container spacing={3}>
-              {/* Chart */}
+              {/* main */}
               <Grid item xs={12} md={8} lg={9}>
                 <Paper
                   sx={{
@@ -170,9 +172,10 @@ export default function Dashboard() {
                     height: 240,
                   }}
                 >
+                  <Outlet/>
                 </Paper>
               </Grid>
-              {/* Recent Deposits */}
+              {/* main */}
             </Grid>
             <Copyright sx={{ pt: 4 }} />
           </Container>
