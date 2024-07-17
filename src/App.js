@@ -1,16 +1,20 @@
 import './App.css';
-import Chart from './components/Chart';
-import Dashboard from './components/Dashboard';
-import Deposits from './components/Deposits';
-import Orders from './components/Orders';
+import HomePage from './pages/HomePage';
+import AddNotes from './pages/AddNotes';
+import Notes from './pages/AddNotes'; 
+import {BrowserRouter, Routes, Route} from "react-router-dom";
 
 function App() {
   return (
     <div className="App">
-      <Chart/>
-      <Dashboard/>
-      <Deposits/>
-      <Orders/>
+      <BrowserRouter>
+        <Routes>
+          <Route path = "/" element = {<HomePage />}>
+            <Route path = "/notes" element = {<Notes />} />
+            <Route path = "/add" element = {<AddNotes />} />
+          </Route>
+        </Routes>
+      </BrowserRouter>
       
     </div>
   );
