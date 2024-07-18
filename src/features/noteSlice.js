@@ -20,9 +20,27 @@ const noteSlice = createSlice({
             state.notes.push(newPost);
             storeInLocalStorage('notes', state.notes);
         },
+        removeNote(state, action){
+            const tempId = action.payload;
+            const tempNotes = state.notes.filter(note => note.noteId !== tempId);
+            state.notes = tempNotes;
+            storeInLocalStorage('notes', tempNotes);
+        },
 
-       
+        editNote(state, action){
+            const {noteId, noteTitle, noteContent} = action.payload;
+            const tempNotes = state.notes.map(note => {
+                if(note.noteId === noteId){
+                    note.noteTitle = noteTitle;
+                    note.noteContent = noteContent;
+                    note.noteDate = new Date().toISOString();
+                }
+                return note;
+            });
 
+            state.note = tempNotes;
+            storeInLocalStorage('notes', tempNotes);
+        },
      
         increaseCount(state, action){
             state.count = state.count + 1;
@@ -30,6 +48,6 @@ const noteSlice = createSlice({
     }
 });
 
-export const { addNewNote } = noteSlice.actions;
+export const { addNewNote, removeNote, editNote } = noteSlice.actions;
 export const getAllNotes = (state) => state.notes.notes;
 export default noteSlice.reducer;
