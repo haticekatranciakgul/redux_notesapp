@@ -4,10 +4,10 @@ import Dashboard from '../components/Dashboard';
 
 const HomePage = () => {
   return (
-    <div>
+    <>
         <Dashboard/>
       
-    </div>
+    </>
   )
 }
 

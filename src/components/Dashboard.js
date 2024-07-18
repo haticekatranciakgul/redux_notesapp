@@ -21,6 +21,11 @@ import SideMenuList from './SideMenuList';
 import { Outlet } from 'react-router-dom';
 
 
+const darkTheme = createTheme({
+  palette: {
+    mode: 'dark',
+  },
+});
 function Copyright(props) {
   return (
     <Typography variant="body2" color="text.secondary" align="center" {...props}>
@@ -81,7 +86,6 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
 );
 
 // TODO remove, this demo shouldn't need to reset the theme.
-const defaultTheme = createTheme();
 
 export default function Dashboard() {
   const [open, setOpen] = React.useState(true);
@@ -90,7 +94,7 @@ export default function Dashboard() {
   };
 
   return (
-    <ThemeProvider theme={defaultTheme}>
+    <ThemeProvider theme={darkTheme}>
       <Box sx={{ display: 'flex' }}>
         <CssBaseline />
         <AppBar position="absolute" open={open}>
@@ -169,7 +173,8 @@ export default function Dashboard() {
                     p: 2,
                     display: 'flex',
                     flexDirection: 'column',
-                    height: 240,
+                    height: 'auto',
+                    minHeight: '240'
                   }}
                 >
                   <Outlet/>

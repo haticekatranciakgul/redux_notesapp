@@ -14,30 +14,36 @@ const SideMenuList = () => {
 
   return (
     <React.Fragment>
-      <ListItemButton>
-        <Link to="/" className={`text-white flex justify-center align-center link-item ${pathname === 'home' ? 'active-link' : ""}`}>
+      
+      <Link to="/" className={`text-white td-none link-item ${pathname === 'home' ? 'active-link' : ""}`}>
+
+        <ListItemButton>
           <ListItemIcon>
             <DashboardIcon />
           </ListItemIcon>
           <ListItemText primary="Home" />
-        </Link>
-      </ListItemButton>
-      <ListItemButton>
-        <Link to="/notes" className={`text-white flex justify-center align-center link-item ${pathname === 'notes' ? 'active-link' : ""}`}>
+        </ListItemButton>
+      </Link>
+
+
+
+      <Link to="/notes" className={`text-white td-none link-item ${pathname === 'notes' ? 'active-link' : ""}`}>
+
+        <ListItemButton>
           <ListItemIcon>
             <ShoppingCartIcon />
           </ListItemIcon>
           <ListItemText primary="Notes" />
-        </Link>
-      </ListItemButton>
-      <ListItemButton>
-        <Link to="/add" className={`text-white flex justify-center align-center link-item ${pathname === 'add' ? 'active-link' : ""}`}>
-        <ListItemIcon>
-          <PeopleIcon />
-        </ListItemIcon>
-        <ListItemText primary="Add" />
-        </Link>
-      </ListItemButton>
+        </ListItemButton>
+      </Link>
+      <Link to="/add" className={`text-white td-none link-item ${pathname === 'add' ? 'active-link' : ""}`}>
+        <ListItemButton>
+          <ListItemIcon>
+            <PeopleIcon />
+          </ListItemIcon>
+          <ListItemText primary="Add" />
+        </ListItemButton>
+      </Link>
     </React.Fragment>
   )
 

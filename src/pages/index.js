@@ -1,5 +1,5 @@
 import HomePage from "./HomePage";
 import AddNotes from "./AddNotes";
-import Notes from "./Notes";
+import NotesPage from "./NotesPage";
 
-export { HomePage, AddNotes, Notes };
+export { HomePage, AddNotes, NotesPage };
