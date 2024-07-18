@@ -1,5 +1,5 @@
 import './App.css';
-import {HomePage , AddNotes, NotesPage} from './pages/index';
+import {HomePage , AddNotes,EditNote, NotesPage} from './pages/index';
 import {BrowserRouter, Routes, Route} from "react-router-dom";
 
 function App() {
@@ -10,6 +10,7 @@ function App() {
           <Route path = "/" element = {<HomePage />}>
             <Route path = "/notes" element = {<NotesPage />} />
             <Route path = "/add" element = {<AddNotes />} />
+            <Route path = "/edit/:id" element = {<EditNote />} />
           </Route>
         </Routes>
       </BrowserRouter>

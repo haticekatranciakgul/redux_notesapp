@@ -12,7 +12,7 @@ const NotesPage = () => {
   return (
     <>
       <Typography variant="h4" >Note List</Typography>
-      <Divider sx={{ marginBottom: 10, }}></Divider>
+      <Divider sx={{ marginBottom: 5 }}></Divider>
       <NoteList notes={notes} />
     </>
   )

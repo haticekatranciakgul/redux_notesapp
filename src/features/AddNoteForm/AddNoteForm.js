@@ -64,7 +64,7 @@ const AddNoteForm = () => {
                 <Box sx={{ flexGrow: 1 }}>
                     <Grid container spacing={2}>
                         <Grid item xs={12}>
-                            <Typography className='text-label'>Title: </Typography>
+                            <Typography className='text-label' sx={{ marginBottom: 3 }}>Title: </Typography>
                             <TextField id="noteTitle" name='noteTitle' onChange={onFormDataChange} value={FormData.noteTitle} label="Note Title" variant="outlined"
                                 sx={{
                                     display: 'flex',
@@ -74,7 +74,7 @@ const AddNoteForm = () => {
                             />
                         </Grid>
                         <Grid item xs={12}>
-                            <Typography className='text-label' >Content:</Typography>
+                            <Typography className='text-label' sx={{ marginBottom: 3 }} >Content:</Typography>
                             <TextField id="noteContent" name='noteContent' onChange={onFormDataChange} value={FormData.noteContent} label="Note Content" variant="outlined"
                                 sx={{
                                     display: 'flex',
