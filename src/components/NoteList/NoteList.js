@@ -38,8 +38,8 @@ const NoteList = ({ notes }) => {
         {notes.map(note => (
           <Grid item xs={6} key={note.noteId}>
             <Item >
-              <Card key={note.noteId}>
-                <CardContent>
+              <Card key={note.noteId} sx={{  height: 300, }}>
+                <CardContent sx={{ boxSizing: 'border-box' , minHeight: '80%', display: 'flex', flexDirection:'column' }}>
                   <Typography gutterBottom variant="h5" component="div">
                     {note.noteTitle.substring(0, 80) + "..."}
                   </Typography>
@@ -48,7 +48,7 @@ const NoteList = ({ notes }) => {
                     {note.noteContent.substring(0, 150) + "..."}
                   </Typography>
                 </CardContent>
-                <CardActions>
+                <CardActions  sx={{ flexGrow:'0', flexShrink:'0' }}>
                   <Grid container spacing={2} alignItems='center'>
                     <Grid item xs={2}>
                       <Button size="small">
@@ -61,7 +61,7 @@ const NoteList = ({ notes }) => {
                       </Link>
                     </Grid>
                     <Grid item xs={8}>
-                      <Link to={`/note/${note.noteId}`}>
+                      <Link to={`/note/${note.noteId}`} className='text-white td-none '>
                         <Typography textAlign='right'>Learn More..</Typography>
                       </Link>
                     </Grid>
