@@ -164,17 +164,20 @@ export default function Dashboard() {
           }}
         >
           <Toolbar />
-          <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
-            <Grid container spacing={3}>
+          <Container maxWidth="lg" sx={{ mt: 4, mb: 4,  }}>
+            <Grid container spacing={3} sx={{
+            justifyContent:'center'}}>
               {/* main */}
-              <Grid item xs={12} md={8} lg={9}>
+              <Grid item xs={12} md={8} lg={9} >
                 <Paper
                   sx={{
                     p: 2,
                     display: 'flex',
                     flexDirection: 'column',
                     height: 'auto',
-                    minHeight: '240'
+                    minHeight: '240',
+                    bgcolor:'#2a2a2a',
+                    
                   }}
                 >
                   <Outlet/>

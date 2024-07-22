@@ -2,9 +2,9 @@ import * as React from 'react';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-import DashboardIcon from '@mui/icons-material/Dashboard';
-import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
-import PeopleIcon from '@mui/icons-material/People';
+import HomeIcon from '@mui/icons-material/Home';
+import EditNoteIcon from '@mui/icons-material/EditNote';
+import AddIcon from '@mui/icons-material/Add';
 import { Link, useLocation } from "react-router-dom";
 
 
@@ -19,7 +19,7 @@ const SideMenuList = () => {
 
         <ListItemButton>
           <ListItemIcon>
-            <DashboardIcon />
+            <HomeIcon />
           </ListItemIcon>
           <ListItemText primary="Home" />
         </ListItemButton>
@@ -31,7 +31,7 @@ const SideMenuList = () => {
 
         <ListItemButton>
           <ListItemIcon>
-            <ShoppingCartIcon />
+            <EditNoteIcon />
           </ListItemIcon>
           <ListItemText primary="Notes" />
         </ListItemButton>
@@ -39,7 +39,7 @@ const SideMenuList = () => {
       <Link to="/add" className={`text-white td-none link-item ${pathname === 'add' ? 'active-link' : ""}`}>
         <ListItemButton>
           <ListItemIcon>
-            <PeopleIcon />
+            <AddIcon />
           </ListItemIcon>
           <ListItemText primary="Add" />
         </ListItemButton>

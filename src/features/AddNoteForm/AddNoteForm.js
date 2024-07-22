@@ -59,7 +59,6 @@ const AddNoteForm = () => {
 
     return (
         <>
-            <h4>Add New Note</h4>
             <Container maxWidth="sm">
                 <Box sx={{ flexGrow: 1 }}>
                     <Grid container spacing={2}>

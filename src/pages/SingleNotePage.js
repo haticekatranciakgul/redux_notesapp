@@ -10,7 +10,7 @@ const SingleNotePage = () => {
     const notes = useSelector(getAllNotes);
     let tempNote = notes.filter(note => note.noteId === id);
   return (
-    <Box sx={{ width: '100%'}}>
+    <Box sx={{ width: '100%' }}>
      
       <Typography variant="h4" gutterBottom>
       {tempNote[0].noteTitle}
