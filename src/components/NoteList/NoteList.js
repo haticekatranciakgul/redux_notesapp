@@ -15,6 +15,7 @@ import { styled } from '@mui/material/styles';
 import Paper from '@mui/material/Paper';
 import { Link } from "react-router-dom";
 
+
 const NoteList = ({ notes }) => {
 
   const dispatch = useDispatch();

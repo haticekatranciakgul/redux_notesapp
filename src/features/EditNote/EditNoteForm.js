@@ -8,6 +8,8 @@ import { Container, Button, Typography } from '@mui/material'
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import TextField from '@mui/material/TextField';
+import { addNotification } from '../notificationSlice';
+
 
 
 const EditNoteForm = () => {
@@ -53,6 +55,7 @@ const EditNoteForm = () => {
         if (!titleError && !contentError) {
             console.log(formData);
             dispatch(editNote(formData));
+            dispatch(addNotification({ message: "A note was edited" })); 
             toast("Note edited successfully");
             setFormData({ noteTitle: "", noteContent: "" });
         }
