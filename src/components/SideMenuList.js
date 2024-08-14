@@ -16,7 +16,6 @@ const SideMenuList = () => {
     <React.Fragment>
       
       <Link to="/" className={`text-white td-none link-item ${pathname === 'home' ? 'active-link' : ""}`}>
-
         <ListItemButton>
           <ListItemIcon>
             <HomeIcon />
@@ -25,10 +24,7 @@ const SideMenuList = () => {
         </ListItemButton>
       </Link>
 
-
-
       <Link to="/notes" className={`text-white td-none link-item ${pathname === 'notes' ? 'active-link' : ""}`}>
-
         <ListItemButton>
           <ListItemIcon>
             <EditNoteIcon />
