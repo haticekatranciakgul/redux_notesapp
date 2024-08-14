@@ -19,6 +19,10 @@ import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import SideMenuList from './SideMenuList';
 import { Outlet } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';  // useSelector ekledik
+import Menu from '@mui/material/Menu';
+import MenuItem from '@mui/material/MenuItem';
+import { clearNotifications } from '../features/notificationSlice'; // Bildirimleri temizlemek için eklendi
 
 
 const darkTheme = createTheme({
@@ -89,9 +93,32 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
 
 export default function Dashboard() {
   const [open, setOpen] = React.useState(true);
+  const [anchorEl, setAnchorEl] = React.useState(null);
+  const dispatch = useDispatch();
+  const notificationCount = useSelector((state) => state.notifications?.count || 0);
+  const notificationsList = useSelector((state) => state.notifications?.notificationsList || []);
+
+
+
   const toggleDrawer = () => {
     setOpen(!open);
   };
+
+  const handleNotificationClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+
+
+
+  const handleClearNotifications = () => {
+    dispatch(clearNotifications());
+    handleClose();
+  };
+
 
   return (
     <ThemeProvider theme={darkTheme}>
@@ -124,11 +151,27 @@ export default function Dashboard() {
             >
               Dashboard
             </Typography>
-            <IconButton color="inherit">
-              <Badge badgeContent={4} color="secondary">
+            <IconButton color="inherit" onClick={handleNotificationClick}>
+              <Badge badgeContent={notificationCount} color="secondary">
                 <NotificationsIcon />
               </Badge>
             </IconButton>
+            <Menu
+              anchorEl={anchorEl}
+              open={Boolean(anchorEl)}
+              onClose={handleClose}
+            >
+              {notificationsList.length === 0 ? (
+                <MenuItem onClick={handleClose}>No notifications</MenuItem>
+              ) : (
+                notificationsList.map((notification, index) => (
+                  <MenuItem key={index} onClick={handleClose}>
+                    {notification.message}
+                  </MenuItem>
+                ))
+              )}
+              <MenuItem onClick={handleClearNotifications}>Clear Notifications</MenuItem>
+            </Menu>
           </Toolbar>
         </AppBar>
         <Drawer variant="permanent" open={open}>
@@ -148,7 +191,7 @@ export default function Dashboard() {
           <List component="nav">
             <SideMenuList></SideMenuList>
             <Divider sx={{ my: 1 }} />
-           
+
           </List>
         </Drawer>
         <Box
@@ -164,9 +207,10 @@ export default function Dashboard() {
           }}
         >
           <Toolbar />
-          <Container maxWidth="lg" sx={{ mt: 4, mb: 4,  }}>
+          <Container maxWidth="lg" sx={{ mt: 4, mb: 4, }}>
             <Grid container spacing={3} sx={{
-            justifyContent:'center'}}>
+              justifyContent: 'center'
+            }}>
               {/* main */}
               <Grid item xs={12} md={8} lg={9} >
                 <Paper
@@ -176,11 +220,11 @@ export default function Dashboard() {
                     flexDirection: 'column',
                     height: 'auto',
                     minHeight: '240',
-                    bgcolor:'#2a2a2a',
-                    
+                    bgcolor: '#2a2a2a',
+
                   }}
                 >
-                  <Outlet/>
+                  <Outlet />
                 </Paper>
               </Grid>
               {/* main */}
@@ -188,7 +232,7 @@ export default function Dashboard() {
             <Copyright sx={{ pt: 4 }} />
           </Container>
         </Box>
-      </Box> 
+      </Box>
     </ThemeProvider>
   );
 }
